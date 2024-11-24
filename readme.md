@@ -1,38 +1,57 @@
-The differences between customers who accepted and rejected the coupons can be observed across several key factors:
+# Summary of Findings
 
-### **1\. Coupon Type:**
+## **Key Drivers of Used Car Prices**
 
-* **Bar Coupons**: Younger customers, in particular, were more inclined to accept bar-related coupons, which had a higher acceptance rate compared to restaurant and coffee house coupons.  
-* **Restaurant & Coffee House Coupons**: Acceptance rates for these coupons were more evenly distributed, though they were influenced by factors such as customer income and the presence of passengers.
+### **1. Mileage (Odometer Reading)**
+- **Observation**: Cars with lower mileage tend to have higher resale prices due to better perceived condition and reliability.
+- **Recommendation**: Prioritize inventory with low odometer readings to appeal to price-sensitive buyers.
 
-### **2\. Demographics:**
+### **2. Manufacturer and Model**
+- **Observation**: Certain brands (e.g., BMW, Mercedes) and popular models (e.g., Toyota Corolla, Honda Civic) consistently retain higher value.
+- **Recommendation**: Stock vehicles from manufacturers and models that are in high demand to maximize profitability.
 
-* **Age**:  
-  * **Accepted**: Younger customers (under 30\) were more likely to accept coupons, especially those related to bars and social settings.  
-  * **Not Accepted**: Older customers (over 30\) had lower acceptance rates, particularly for bar coupons.  
-* **Income**:  
-  * **Accepted**: Higher-income individuals were more likely to accept coupons, especially for entertainment and dining at higher-end establishments.  
-  * **Not Accepted**: Lower-income individuals were less likely to accept bar coupons but were more interested in practical offers, such as discounts at less expensive restaurants.
+### **3. Vehicle Condition**
+- **Observation**: Vehicles in "excellent" condition command significantly higher prices.
+- **Recommendation**: Emphasize the condition of vehicles in marketing efforts and consider condition as a key pricing factor.
 
-### **3\. Passenger Influence:**
+## **Model Performance Overview**
 
-* **Accepted**: Drivers with adult passengers, such as partners or friends, were more likely to accept bar or coffee house coupons, suggesting that social settings increase the likelihood of acceptance.  
-* **Not Accepted**: Drivers with children were less likely to accept bar-related coupons, indicating that family-oriented contexts decrease the appeal of such offers.
+### **1. Linear Regression**
+- **MAE**: 3098.48
+- **RMSE**: 4742.28
+- **R²**: 0.86
+- **Insight**: Linear Regression is a simple and effective baseline model, capturing 86% of the variance in car prices.
 
-### **4\. Frequency of Visits:**
+### **2. Ridge Regression**
+- **Best Alpha**: 0.1
+- **MAE**: 3102.53
+- **RMSE**: 4730.04
+- **R²**: 0.86
+- **Insight**: Ridge Regression slightly reduces overfitting and provides performance comparable to Linear Regression.
 
-* **Accepted**: Frequent visitors to bars and coffee houses (more than three times a month) showed significantly higher acceptance rates for coupons related to these venues. They were more open to using coupons in places they regularly visit.  
-* **Not Accepted**: Infrequent visitors to bars and restaurants were less likely to accept coupons, potentially because they saw less immediate value or were less inclined to make spontaneous decisions.
+### **3. Gradient Boosting Regression**
+- **Best Parameters**: 
+  - `learning_rate`: 0.2
+  - `max_depth`: 3
+  - `n_estimators`: 300
+- **MAE**: 3969.35
+- **RMSE**: 5581.38
+- **R²**: 0.80
+- **Insight**: Gradient Boosting underperformed due to computational constraints limiting hyperparameter tuning.
 
-### **5\. Time of Day:**
+## **Evaluation Metrics**
+- **MAE (Mean Absolute Error)**: Highlights average prediction error magnitude.
+- **RMSE (Root Mean Squared Error)**: Penalizes larger errors more heavily, reflecting model accuracy.
+- **R² (Coefficient of Determination)**: Explains the proportion of variance captured by the model.
 
-* **Accepted**: Coupons sent during the evening or weekends, especially for bars, were more likely to be accepted, as customers were more likely to engage in leisure activities during these times.  
-* **Not Accepted**: Coupons delivered during work hours or mornings were less frequently accepted, particularly for bar-related offers, as these times are less suitable for social activities.
+## **Recommendations for Dealers**
+1. **Focus on Popular Brands and Models**: Stock vehicles from high-demand manufacturers and top-selling models.
+2. **Emphasize Low Mileage**: Promote inventory with low odometer readings to justify higher prices.
+3. **Highlight Vehicle Condition**: Ensure marketing materials include detailed descriptions of condition to attract premium buyers.
+4. **Utilize Predictive Models**: Deploy Linear or Ridge Regression for pricing decisions due to their simplicity and effectiveness.
+5. **Improve Features**: Add detailed metrics like fuel efficiency and safety ratings for better future predictions.
 
-### **Summary of Differences:**
-
-* **Customers who accepted coupons**: Tended to be younger, have higher incomes, frequent social venues like bars and coffee houses, and were often accompanied by adult passengers. The timing of the coupon and its type played important roles in their decision to accept.  
-* **Customers who rejected coupons**: Were more likely to be older, with lower incomes, and less frequent visitors to bars and restaurants. They were also more inclined to reject offers if they had children with them or if the coupon was delivered at less convenient times (such as during work hours).
-
-By understanding these differences, businesses can refine their marketing strategies to more effectively target customers based on their likelihood of accepting coupons.
-
+## **Next Steps**
+1. **Feature Engineering**: Enhance dataset with additional attributes to capture non-linear patterns.
+2. **Optimize Gradient Boosting**: Allocate computational resources to explore advanced tuning for tree-based models.
+3. **Continuous Model Updates**: Regularly retrain models using updated sales data to keep insights relevant.
