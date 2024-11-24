@@ -14,6 +14,25 @@
 - **Observation**: Vehicles in "excellent" condition command significantly higher prices.
 - **Recommendation**: Emphasize the condition of vehicles in marketing efforts and consider condition as a key pricing factor.
 
+---
+
+## **Folder Structure of Repository**
+
+### **Project Files**
+1. **Summary of Findings**: A document summarizing the analysis on used car price prediction, providing insights and actionable recommendations.
+2. **Images**:
+   - `crisp.png`: Visual representation of the CRISP-DM framework used in the project.
+   - `kurt.jpeg`: Additional visuals used to support the analysis.
+3. **Saved Models**:
+   - `linear_regression_model.pkl`: Serialized Linear Regression model for predictions.
+   - `ridge_regression_model.pkl`: Serialized Ridge Regression model for predictions.
+4. **Notebooks**:
+   - `predictingcarprice.ipynb`: Jupyter Notebook containing code, analysis, and workflow for predicting car prices.
+5. **Documentation**:
+   - `readme.md`: Overview of the project, instructions for setup, and details of findings.
+
+---
+
 ## **Model Performance Overview**
 
 ### **1. Linear Regression**
@@ -39,10 +58,14 @@
 - **R²**: 0.80
 - **Insight**: Gradient Boosting underperformed due to computational constraints limiting hyperparameter tuning.
 
+---
+
 ## **Evaluation Metrics**
 - **MAE (Mean Absolute Error)**: Highlights average prediction error magnitude.
 - **RMSE (Root Mean Squared Error)**: Penalizes larger errors more heavily, reflecting model accuracy.
 - **R² (Coefficient of Determination)**: Explains the proportion of variance captured by the model.
+
+---
 
 ## **Recommendations for Dealers**
 1. **Focus on Popular Brands and Models**: Stock vehicles from high-demand manufacturers and top-selling models.
@@ -51,7 +74,9 @@
 4. **Utilize Predictive Models**: Deploy Linear or Ridge Regression for pricing decisions due to their simplicity and effectiveness.
 5. **Improve Features**: Add detailed metrics like fuel efficiency and safety ratings for better future predictions.
 
+---
+
 ## **Next Steps**
 1. **Feature Engineering**: Enhance dataset with additional attributes to capture non-linear patterns.
 2. **Optimize Gradient Boosting**: Allocate computational resources to explore advanced tuning for tree-based models.
-3. **Continuous Model Updates**: Regularly retrain models using updated sales data to keep insights relevant.
+3. **Continuous Model Updates**: Regularly retrain models with updated data to improve predictive accuracy and relevance.
